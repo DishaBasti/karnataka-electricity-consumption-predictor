@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jersey+15&family=Orbitron&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .start-button {
+            padding: 20px 40px;
+            font-size: 56px;
+            color: #FFFFFF;
+            background-color: transparent;
+            font-family: 'Orbitron';
+            cursor: pointer;
+            animation: fadeIn 2s ease-in-out, pulse 2s infinite;
+        }
+
+        .start-button:hover {
+            color: #CCCCCC;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUPRABHAV</title>
+</head>
+
+<body>
+    <div class="video-container">
+        <video id="backgroundVideo">
+            <source src="images/Welcome.mp4" type="video/mp4">
+        </video>
+    </div>
+    <!-- <button class="start-button" onclick="startVideo()">WELCOME</button> -->
+    <button class="start-button" onclick="window.location.href='/main';">WELCOME</button>
+    <!-- <script>
+        function startVideo() {
+            const video = document.getElementById('backgroundVideo');
+            video.play();
+            video.addEventListener('ended', () => {
+                window.location.href = '/main';
+            });
+            document.querySelector('.start-button').style.display = 'none';
+        }
+    </script> -->
+</body>
+
+</html>

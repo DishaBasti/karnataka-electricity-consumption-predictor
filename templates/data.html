@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Consumption in Karnataka</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC&family=Lato&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        nav,
+        button,
+        a,
+        caption {
+            font-family: 'Bona Nova SC', serif;
+        }
+
+        div .relative>img {
+            width: 600px;
+            height: 400px;
+        }
+
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(0, 0, 0, 0.664);
+        }
+
+        .relative:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: "Philosopher";
+        }
+
+        .highlight {
+            background-color: #e0f7fa;
+            border-left: 5px solid #00796b;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .gradient-background {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .result {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2d3748;
+            margin-top: 20px;
+        }
+
+        .dark .highlight {
+            background-color: #374151;
+            border-left: 5px solid #1c1f24;
+            color: #cbd5e0;
+        }
+
+        .dark .gradient-background {
+            background: linear-gradient(to right, #1f2937, #4b5563);
+        }
+
+        .dark .bg-white {
+            background-color: #1f2937;
+        }
+
+        .dark .text-gray-900 {
+            color: #e5e7eb;
+        }
+
+        .dark .text-gray-700 {
+            color: #a1a1aa;
+        }
+
+        .dark .text-black {
+            color: #d1d5db;
+        }
+
+        .dark .bg-gray-100 {
+            background-color: #111827;
+        }
+
+        .dark .bg-teal-600 {
+            background-color: #0f172a;
+        }
+
+        .dark .text-white {
+            color: #d1d5db;
+        }
+
+        .dark .bg-teal-600 {
+            background-color: #1e293b;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-300">
+
+    <nav class="bg-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div class="relative flex items-center justify-between h-16">
+            <!-- Mobile menu button -->
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <button type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <!-- Icon when menu is closed. -->
+                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Icon when menu is open. -->
+                <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex-shrink-0">
+                <a href="/home"><img class="h-8 w-auto" src="images/logo1.png" alt="Anuprabhav"></a>
+              </div>
+              <div class="hidden sm:block sm:ml-6">
+                <div class="flex space-x-4">
+                  <a href="/home"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                  <a href="/data"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Electricity
+                    in Karnataka</a>
+                  <a href="/home#about"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
+                    Us</a>
+                  <a href="/model"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ML
+                    Model Features</a>
+                  <a href="/home#contact"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
+                    Us</a>
+                </div>
+              </div>
+            </div>
+            <div class="hidden sm:block sm:ml-6">
+              <div class="relative flex items-center">
+                <input id="searchBar"
+                  class="bg-gray-700 text-gray-300 placeholder-gray-400 rounded-md py-2 pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:text-gray-900"
+                  type="text" placeholder="Search..">
+                <button id="searchButton"
+                  class="absolute right-0 top-0 mt-2 mr-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16l4-4-4-4m0 0h12m-12 0a9 9 0 110 18 9 9 0 010-18z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/home"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="/data"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Electricity
+              in Karnataka</a>
+            <a href="/home#about"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About
+              Us</a>
+            <a href="/model"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ML
+              Model Features</a>
+            <a href="/home#contact"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact
+              Us</a>
+          </div>
+        </div>
+      </nav>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-10">
+
+        <!-- Introduction Section -->
+        <section class="mb-12">
+            <h2 class="text-4xl font-bold text-teal-800 dark:text-teal-300 mb-6">Electricity Consumption in Karnataka
+            </h2>
+            <p class="text-xl text-gray-700 dark:text-gray-300 mb-6">
+                This webpage provides insights into the electricity consumption patterns in Karnataka across different
+                districts over several years. By analyzing historical data, we aim to forecast future energy usage
+                trends and help in planning and managing energy resources efficiently.
+            </p>
+        </section>
+
+        <!-- Summary Section -->
+        <section id="summary" class="mb-12">
+            <h3 class="text-3xl font-semibold text-teal-700 dark:text-teal-300 mb-4">Summary of the Dataset</h3>
+            <div class="highlight dark:bg-gray-800 dark:text-gray-300">
+                <p><strong>Year:</strong> The year in which the data was recorded.</p>
+                <p><strong>District:</strong> The district in Karnataka where the data was collected.</p>
+                <p><strong>House Size (sqft):</strong> The size of the house in square feet.</p>
+                <p><strong>Household Size:</strong> The number of people in the household.</p>
+                <p><strong>Energy Consumption (kWh):</strong> The amount of energy consumed in kilowatt-hours.</p>
+                <p><strong>Price (in Rupees):</strong> The cost of energy consumption in Rupees.</p>
+            </div>
+        </section>
+
+        <!-- Report Section -->
+        <section id="report" class="mb-12">
+            <h3 class="text-3xl font-semibold text-teal-700 dark:text-teal-300 mb-4">Report</h3>
+            <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+                <h4 class="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-4">Data Description</h4>
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                    The dataset provides detailed information on energy consumption patterns across different districts
+                    in Karnataka. The data spans multiple years, giving insights into how energy consumption has evolved
+                    over time. The key variables include:
+                </p>
+                <ul class="list-disc list-inside text-lg text-gray-700 dark:text-gray-300 mb-6">
+                    <li><strong>Year:</strong> Indicates the year of the observation, helping to understand temporal
+                        trends in energy consumption.</li>
+                    <li><strong>District:</strong> Represents the geographic location within Karnataka, aiding in
+                        analyzing regional differences in energy consumption.</li>
+                    <li><strong>House Size (sqft):</strong> Measures the size of the house, which can be correlated with
+                        energy consumption.</li>
+                    <li><strong>Household Size:</strong> Indicates the number of people in the household, impacting
+                        energy usage.</li>
+                    <li><strong>Energy Consumption (kWh):</strong> The primary variable of interest, showing the amount
+                        of energy consumed.</li>
+                    <li><strong>Price (in Rupees):</strong> Represents the cost of the consumed energy, used to analyze
+                        the economic aspects of energy usage.</li>
+                </ul>
+
+                <h4 class="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-4">Preliminary Analysis</h4>
+                <ul class="list-disc list-inside text-lg text-gray-700 dark:text-gray-300 mb-6">
+                    <li><strong>Temporal Trends:</strong> Identify trends in energy consumption over different years,
+                        understanding factors like technological advancements, population growth, and economic changes.
+                    </li>
+                    <li><strong>Regional Analysis:</strong> Analyze data for different districts to identify regional
+                        variations in energy consumption for targeted policy-making and resource allocation.</li>
+                    <li><strong>Correlation Analysis:</strong> Examine the correlation between house size, household
+                        size, and energy consumption to understand the factors driving energy usage.</li>
+                </ul>
+
+                <h4 class="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-4">Potential Insights</h4>
+                <ul class="list-disc list-inside text-lg text-gray-700 dark:text-gray-300 mb-6">
+                    <li><strong>Predictive Modeling:</strong> Build predictive models using historical data to forecast
+                        future energy consumption, aiding in better planning and management of energy resources.</li>
+                    <li><strong>Policy Recommendations:</strong> Provide recommendations for improving energy efficiency
+                        and reducing consumption based on the analysis.</li>
+                    <li><strong>Cost Analysis:</strong> Study the economic impact of energy consumption by analyzing the
+                        price data, suggesting ways to make energy more affordable.</li>
+                </ul>
+                <br>
+                <br>
+                <caption text-align="center">
+                    <h4 class="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-4">Steps involved in Model Making
+                    </h4>
+                </caption>
+                <img src="static\images\Model1.png" class="ste" height=600 width=1200>
+
+            </div>
+        </section>
+
+
+        <section id="dataset" class="mb-12">
+            <h3 class="text-3xl font-semibold text-teal-700 dark:text-teal-300 mb-4">Dataset Snapshot</h3>
+            <div class="gradient-background shadow-md rounded-lg p-6">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-teal-600 dark:bg-teal-800 text-white">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                Year</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                District</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                House Size (sqft)</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                Household Size</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                Energy Consumption (kWh)</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                Price (in Rupees)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">1990</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Bengaluru</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1232</td>
+                            <td class="px-6 py-4 whitespace-nowrap">3</td>
+                            <td class="px-6 py-4 whitespace-nowrap">69</td>
+                            <td class="px-6 py-4 whitespace-nowrap">34.5</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">1990</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Bengaluru</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1284</td>
+                            <td class="px-6 py-4 whitespace-nowrap">2</td>
+                            <td class="px-6 py-4 whitespace-nowrap">62</td>
+                            <td class="px-6 py-4 whitespace-nowrap">31.0</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">1990</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Bengaluru</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1672</td>
+                            <td class="px-6 py-4 whitespace-nowrap">4</td>
+                            <td class="px-6 py-4 whitespace-nowrap">50</td>
+                            <td class="px-6 py-4 whitespace-nowrap">25.0</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">1990</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Bengaluru</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1883</td>
+                            <td class="px-6 py-4 whitespace-nowrap">4</td>
+                            <td class="px-6 py-4 whitespace-nowrap">60</td>
+                            <td class="px-6 py-4 whitespace-nowrap">30.0</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">1990</td>
+                            <td class="px-6 py-4 whitespace-nowrap">Bengaluru</td>
+                            <td class="px-6 py-4 whitespace-nowrap">1612</td>
+                            <td class="px-6 py-4 whitespace-nowrap">4</td>
+                            <td class="px-6 py-4 whitespace-nowrap">67</td>
+                            <td class="px-6 py-4 whitespace-nowrap">33.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="/dataset">
+            <button id="view-dataset" class="mt-4 px-4 py-2 bg-teal-600 text-black rounded-md">View Full Dataset</button></a>
+            <a href="/data" download="energyKarnataka.csv" class="ml-4 px-4 py-2 bg-teal-600 text-black rounded-md">Download Dataset</a>
+        </section>
+
+        <section id="visualizations" class="mb-12">
+            <h3 class="text-3xl font-semibold text-teal-700 dark:text-teal-300 mb-4">Data Visualizations</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative">
+                    <canvas id="chart1" class="w-full h-64"></canvas>
+                    <div id="tooltip1" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <canvas id="chart2" class="w-full h-64"></canvas>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src=".static\images\dv1.jpg" alt="Data Visualization 1" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">Electricity consumption sees an exponential increase over the years. This waterfall chart is a testament to the steep ascent.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv2.jpg" alt="Data Visualization 2" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">This visual shows the predicted district-wise average energy consumption in the forecoming years.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv8.jpg" alt="Data Visualization 3" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">The heatmap represents the average energy consumption by year and district.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv4.jpg" alt="Data Visualization 4" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">This bar plot shows the average electricity consumed by each district. It can be seen that the great cosmopolitan NammaBengaluru consuming th ehighest amount of energy.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv3.jpg" alt="Data Visualization 5" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">This box plot shows the range of the energy consumed by various household sizes.It can be inferred that as the number of people in the house increases, higher is the energy consumed.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv6.jpg" alt="Data Visualization 6" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">These subplots show the average energy consumed in kWh over the years for each district.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv1.jpg" alt="Data Visualization 7" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">The line graph shows the current as well as the future trends in electricity consumption in the 5 major districts of Karnataka.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv5.jpg" alt="Data Visualization 8" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">The heatmap include the predicted usage of electricity across the five districts.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv9.png" alt="Data Visualization 9" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">A multi-row card representing the energy consumed, prices incurred and the total area of houses in every district of Karnataka.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+                <div class="relative">
+                    <img src="static\images\dv10.jpg" alt="Data Visualization 10" class="grid-image">
+                    <div class="overlay">
+                        <div class="text">A stacked bar graph representing the energy that will be consumed in the districts.</div>
+                    </div>
+                    <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <footer class="bg-teal-600 text-center py-4 text-black dark:bg-teal-800">
+        <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['1990', '2000', '2010', '2020', '2030'],
+                datasets: [{
+                    label: 'Energy Consumption (kWh)',
+                    data: [69, 70, 80, 90, 100],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['1990', '2000', '2010', '2020', '2030'],
+                datasets: [{
+                    label: 'Price (in Rupees)',
+                    data: [34.5, 36.0, 38.0, 40.0, 45.0],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Tooltips for charts
+        function showTooltip(tooltip, tooltipModel) {
+            if (tooltipModel.opacity === 0) {
+                tooltip.style.opacity = 0;
+                return;
+            }
+            tooltip.style.opacity = 1;
+            tooltip.innerHTML = tooltipModel.body[0].lines[0];
+            tooltip.style.left = tooltipModel.caretX + 'px';
+            tooltip.style.top = tooltipModel.caretY + 'px';
+        }
+
+        chart1.options.plugins.tooltip.custom = (tooltipModel) => {
+            const tooltip = document.getElementById('tooltip1');
+            showTooltip(tooltip, tooltipModel);
+        };
+
+        chart2.options.plugins.tooltip.custom = (tooltipModel) => {
+            const tooltip = document.getElementById('tooltip2');
+            showTooltip(tooltip, tooltipModel);
+        };
+    </script>
+</body>
+
+</html>

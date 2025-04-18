@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuprabhav</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jersey+15&family=Orbitron&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+        .bg-cover {
+            background-size: cover;
+            background-position: center;
+            background-image: url('static\images\background3.jpg');
+            height: 100vh;
+        }
+
+        .explore-button {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle at center, #9b5c2b 20%, #b4743d 40%, #b77e16 60%, #d3a136 80%);
+            color: black;
+            font-family: 'Orbitron';
+            font-size: 2.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 8px 30px rgba(0, 0, 0, 0.3);
+            animation: blink 1s infinite alternate, fall 1s ease-out forwards;
+        }
+
+        .explore-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes blink {
+            from {
+                background: radial-gradient(circle at center, #ffffff 20%, #f2f2f2 40%, #cccccc 60%, #999999 80%);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 8px 30px rgba(0, 0, 0, 0.3);
+            }
+            to {
+                background: radial-gradient(circle at center, #ffffe0 20%, #dcdcdc 40%, #b0b0b0 60%, #808080 80%);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 12px 40px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-cover flex items-center justify-center">
+
+    <div>
+        <a href="/home" class="explore-button">EXPLORE NOW</a>
+    </div>
+
+</body>
+</html>

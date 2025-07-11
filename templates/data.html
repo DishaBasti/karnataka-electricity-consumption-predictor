@@ -129,85 +129,88 @@
 
     <nav class="bg-gray-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div class="relative flex items-center justify-between h-16">
-            <!-- Mobile menu button -->
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              <button type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <!-- Icon when menu is closed. -->
-                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <!-- Icon when menu is open. -->
-                <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-              <div class="flex-shrink-0">
-                <a href="/home"><img class="h-8 w-auto" src="images/logo1.png" alt="Anuprabhav"></a>
-              </div>
-              <div class="hidden sm:block sm:ml-6">
-                <div class="flex space-x-4">
-                  <a href="/home"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                  <a href="/data"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Electricity
-                    in Karnataka</a>
-                  <a href="/home#about"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
-                    Us</a>
-                  <a href="/model"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ML
-                    Model Features</a>
-                  <a href="/home#contact"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
-                    Us</a>
+            <div class="relative flex items-center justify-between h-16">
+                <!-- Mobile menu button -->
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed. -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open. -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
-              </div>
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0">
+                        <a href="home.html"><img class="h-8 w-auto" src="../static/images/logo1.png"
+                                alt="Anuprabhav"></a>
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <a href="home.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="data.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Electricity
+                                in Karnataka</a>
+                            <a href="#about"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
+                                Us</a>
+                            <a href="model.html"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ML
+                                Model Features</a>
+                            <a href="#contact"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
+                                Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="relative flex items-center">
+                        <input id="searchBar"
+                            class="bg-gray-700 text-gray-300 placeholder-gray-400 rounded-md py-2 pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:text-gray-900"
+                            type="text" placeholder="Search..">
+                        <button id="searchButton"
+                            class="absolute right-0 top-0 mt-2 mr-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16l4-4-4-4m0 0h12m-12 0a9 9 0 110 18 9 9 0 010-18z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="hidden sm:block sm:ml-6">
-              <div class="relative flex items-center">
-                <input id="searchBar"
-                  class="bg-gray-700 text-gray-300 placeholder-gray-400 rounded-md py-2 pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:text-gray-900"
-                  type="text" placeholder="Search..">
-                <button id="searchButton"
-                  class="absolute right-0 top-0 mt-2 mr-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M8 16l4-4-4-4m0 0h12m-12 0a9 9 0 110 18 9 9 0 010-18z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
-    
+
         <div class="sm:hidden" id="mobile-menu">
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="/home"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="/data"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Electricity
-              in Karnataka</a>
-            <a href="/home#about"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About
-              Us</a>
-            <a href="/model"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ML
-              Model Features</a>
-            <a href="/home#contact"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact
-              Us</a>
-          </div>
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="home.html"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="data.html"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Electricity
+                    in Karnataka</a>
+                <a href="#about"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About
+                    Us</a>
+                <a href="model.html"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ML
+                    Model Features</a>
+                <a href="#contact"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact
+                    Us</a>
+            </div>
         </div>
-      </nav>
+    </nav>
     <!-- Main Content -->
     <div class="container mx-auto px-4 py-10">
 
@@ -286,7 +289,7 @@
                     <h4 class="text-2xl font-bold text-gray-900 dark:text-gray-300 mb-4">Steps involved in Model Making
                     </h4>
                 </caption>
-                <img src="static\images\Model1.png" class="ste" height=600 width=1200>
+                <img src="../static/images/Model1.png" class="ste" height=600 width=1200>
 
             </div>
         </section>
@@ -356,9 +359,11 @@
                     </tbody>
                 </table>
             </div>
-            <a href="/dataset">
-            <button id="view-dataset" class="mt-4 px-4 py-2 bg-teal-600 text-black rounded-md">View Full Dataset</button></a>
-            <a href="/data" download="energyKarnataka.csv" class="ml-4 px-4 py-2 bg-teal-600 text-black rounded-md">Download Dataset</a>
+            <a href="dataset.html">
+                <button id="view-dataset" class="mt-4 px-4 py-2 bg-teal-600 text-black rounded-md">View Full
+                    Dataset</button></a>
+            <a href="data.html" download="energyKarnataka.csv"
+                class="ml-4 px-4 py-2 bg-teal-600 text-black rounded-md">Download Dataset</a>
         </section>
 
         <section id="visualizations" class="mb-12">
@@ -373,72 +378,84 @@
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src=".static\images\dv1.jpg" alt="Data Visualization 1" class="grid-image">
+                    <img src="../static/images/dv7.jpg" alt="Data Visualization 1" class="grid-image">
                     <div class="overlay">
-                        <div class="text">Electricity consumption sees an exponential increase over the years. This waterfall chart is a testament to the steep ascent.</div>
+                        <div class="text">Electricity consumption sees an exponential increase over the years. This
+                            waterfall chart is a testament to the steep ascent.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv2.jpg" alt="Data Visualization 2" class="grid-image">
+                    <img src="../static/images/dv2.jpg" alt="Data Visualization 2" class="grid-image">
                     <div class="overlay">
-                        <div class="text">This visual shows the predicted district-wise average energy consumption in the forecoming years.</div>
+                        <div class="text">This visual shows the predicted district-wise average energy consumption in
+                            the forecoming years.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv8.jpg" alt="Data Visualization 3" class="grid-image">
+                    <img src="../static/images/dv8.jpg" alt="Data Visualization 3" class="grid-image">
                     <div class="overlay">
-                        <div class="text">The heatmap represents the average energy consumption by year and district.</div>
+                        <div class="text">The heatmap represents the average energy consumption by year and district.
+                        </div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv4.jpg" alt="Data Visualization 4" class="grid-image">
+                    <img src="../static/images/dv4.jpg" alt="Data Visualization 4" class="grid-image">
                     <div class="overlay">
-                        <div class="text">This bar plot shows the average electricity consumed by each district. It can be seen that the great cosmopolitan NammaBengaluru consuming th ehighest amount of energy.</div>
+                        <div class="text">This bar plot shows the average electricity consumed by each district. It can
+                            be seen that the great cosmopolitan NammaBengaluru consuming th ehighest amount of energy.
+                        </div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv3.jpg" alt="Data Visualization 5" class="grid-image">
+                    <img src="../static/images/dv3.jpg" alt="Data Visualization 5" class="grid-image">
                     <div class="overlay">
-                        <div class="text">This box plot shows the range of the energy consumed by various household sizes.It can be inferred that as the number of people in the house increases, higher is the energy consumed.</div>
+                        <div class="text">This box plot shows the range of the energy consumed by various household
+                            sizes.It can be inferred that as the number of people in the house increases, higher is the
+                            energy consumed.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv6.jpg" alt="Data Visualization 6" class="grid-image">
+                    <img src="../static/images/dv6.jpg" alt="Data Visualization 6" class="grid-image">
                     <div class="overlay">
-                        <div class="text">These subplots show the average energy consumed in kWh over the years for each district.</div>
+                        <div class="text">These subplots show the average energy consumed in kWh over the years for each
+                            district.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv1.jpg" alt="Data Visualization 7" class="grid-image">
+                    <img src="../static/images/dv1.jpg" alt="Data Visualization 7" class="grid-image">
                     <div class="overlay">
-                        <div class="text">The line graph shows the current as well as the future trends in electricity consumption in the 5 major districts of Karnataka.</div>
+                        <div class="text">The line graph shows the current as well as the future trends in electricity
+                            consumption in the 5 major districts of Karnataka.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv5.jpg" alt="Data Visualization 8" class="grid-image">
+                    <img src="../static/images/dv5.jpg" alt="Data Visualization 8" class="grid-image">
                     <div class="overlay">
-                        <div class="text">The heatmap include the predicted usage of electricity across the five districts.</div>
+                        <div class="text">The heatmap include the predicted usage of electricity across the five
+                            districts.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv9.png" alt="Data Visualization 9" class="grid-image">
+                    <img src="../static/images/dv9.png" alt="Data Visualization 9" class="grid-image">
                     <div class="overlay">
-                        <div class="text">A multi-row card representing the energy consumed, prices incurred and the total area of houses in every district of Karnataka.</div>
+                        <div class="text">A multi-row card representing the energy consumed, prices incurred and the
+                            total area of houses in every district of Karnataka.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>
                 <div class="relative">
-                    <img src="static\images\dv10.jpg" alt="Data Visualization 10" class="grid-image">
+                    <img src="../static/images/dv10.jpg" alt="Data Visualization 10" class="grid-image">
                     <div class="overlay">
-                        <div class="text">A stacked bar graph representing the energy that will be consumed in the districts.</div>
+                        <div class="text">A stacked bar graph representing the energy that will be consumed in the
+                            districts.</div>
                     </div>
                     <div id="tooltip2" class="absolute p-2 bg-gray-700 text-white text-sm rounded-md hidden"></div>
                 </div>

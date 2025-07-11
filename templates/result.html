@@ -2,227 +2,232 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricity Consumption Prediction</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jersey+15&family=Orbitron&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Kalnia+Glaze:wght@100..700&family=Rowdies:wght@300;400;700&display=swap');
-        h1, h2, nav {
-            font-family: "Rowdies";
-        }
-        body{
-            font-family:"Philosopher"
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity Consumption Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jersey+15&family=Orbitron&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Kalnia+Glaze:wght@100..700&family=Rowdies:wght@300;400;700&display=swap');
 
-        .result {
-            font-size: 1.25rem;
-            color: #2d3748;
-            margin-top: 20px;
-        }
+    h1,
+    h2,
+    nav {
+      font-family: "Rowdies";
+    }
 
-        .circle {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-            text-align: center;
-            font-family: "Rowdies";
-        }
+    body {
+      font-family: "Philosopher"
+    }
 
-        .circle2 {
-            background: linear-gradient(135deg, #4f46e5, #6b7280);
-        }
+    .result {
+      font-size: 1.25rem;
+      color: #2d3748;
+      margin-top: 20px;
+    }
 
-        .circle3 {
-            background: linear-gradient(135deg, #10b981, #34d399);
-        }
+    .circle {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+      text-align: center;
+      font-family: "Rowdies";
+    }
 
-        .circle1 {
-            background: linear-gradient(135deg, #ef4444, #f87171);
-        }
+    .circle2 {
+      background: linear-gradient(135deg, #4f46e5, #6b7280);
+    }
 
-        .circle:hover {
-            transform: scale(1.1);
-        }
+    .circle3 {
+      background: linear-gradient(135deg, #10b981, #34d399);
+    }
 
-        .circle2:hover {
-            background: linear-gradient(135deg, #4338ca, #4b5563);
-        }
+    .circle1 {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+    }
 
-        .circle3:hover {
-            background: linear-gradient(135deg, #059669, #10b981);
-        }
+    .circle:hover {
+      transform: scale(1.1);
+    }
 
-        .circle1:hover {
-            background: linear-gradient(135deg, #dc2626, #ef4444);
-        }
+    .circle2:hover {
+      background: linear-gradient(135deg, #4338ca, #4b5563);
+    }
 
-        .hover-text, .default-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease-in-out;
-            text-align: center;
-            padding: 10px;
-            border-radius: 50%;
-        }
+    .circle3:hover {
+      background: linear-gradient(135deg, #059669, #10b981);
+    }
 
-        .hover-text {
-            opacity: 0;
-            font-size: 1rem;
-        }
+    .circle1:hover {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+    }
 
-        .circle:hover .hover-text {
-            opacity: 1;
-            background: rgba(0, 0, 0, 0.5);
-        }
+    .hover-text,
+    .default-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease-in-out;
+      text-align: center;
+      padding: 10px;
+      border-radius: 50%;
+    }
 
-        .circle:hover .default-text {
-            opacity: 0;
-        }
-    </style>
+    .hover-text {
+      opacity: 0;
+      font-size: 1rem;
+    }
+
+    .circle:hover .hover-text {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .circle:hover .default-text {
+      opacity: 0;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100">
 
-    <nav class="bg-gray-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div class="relative flex items-center justify-between h-16">
-            <!-- Mobile menu button -->
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-              <button type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <!-- Icon when menu is closed. -->
-                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <!-- Icon when menu is open. -->
-                <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-              <div class="flex-shrink-0">
-                <a href="/home"><img class="h-8 w-auto" src="static\images\logo1.png" alt="Anuprabhav"></a>
-              </div>
-              <div class="hidden sm:block sm:ml-6">
-                <div class="flex space-x-4">
-                  <a href="/home"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                  <a href="/data"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Electricity
-                    in Karnataka</a>
-                  <a href="/home#about"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
-                    Us</a>
-                  <a href="/model"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ML
-                    Model Features</a>
-                  <a href="/home#contact"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
-                    Us</a>
-                </div>
-              </div>
-            </div>
-            <div class="hidden sm:block sm:ml-6">
-              <div class="relative flex items-center">
-                <input id="searchBar"
-                  class="bg-gray-700 text-gray-300 placeholder-gray-400 rounded-md py-2 pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:text-gray-900"
-                  type="text" placeholder="Search..">
-                <button id="searchButton"
-                  class="absolute right-0 top-0 mt-2 mr-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                  <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M8 16l4-4-4-4m0 0h12m-12 0a9 9 0 110 18 9 9 0 010-18z" />
-                  </svg>
-                </button>
-              </div>
+  <nav class="bg-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <!-- Mobile menu button -->
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <button type="button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed. -->
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Icon when menu is open. -->
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex-shrink-0">
+            <a href="home.html"><img class="h-8 w-auto" src="../static/images/logo1.png" alt="Anuprabhav"></a>
+          </div>
+          <div class="hidden sm:block sm:ml-6">
+            <div class="flex space-x-4">
+              <a href="home.html"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="data.html"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Electricity
+                in Karnataka</a>
+              <a href="#about"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
+                Us</a>
+              <a href="model.html"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ML
+                Model Features</a>
+              <a href="#contact"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
+                Us</a>
             </div>
           </div>
         </div>
-    
-        <div class="sm:hidden" id="mobile-menu">
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="/home"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-            <a href="/data"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Electricity
-              in Karnataka</a>
-            <a href="/home#about"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About
-              Us</a>
-            <a href="/model"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ML
-              Model Features</a>
-            <a href="/home#contact"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact
-              Us</a>
+        <div class="hidden sm:block sm:ml-6">
+          <div class="relative flex items-center">
+            <input id="searchBar"
+              class="bg-gray-700 text-gray-300 placeholder-gray-400 rounded-md py-2 pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:text-gray-900"
+              type="text" placeholder="Search..">
+            <button id="searchButton"
+              class="absolute right-0 top-0 mt-2 mr-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 16l4-4-4-4m0 0h12m-12 0a9 9 0 110 18 9 9 0 010-18z" />
+              </svg>
+            </button>
           </div>
         </div>
-      </nav>
-    
-
-    <div class="container mx-auto px-4 py-10">
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Predictive Model for Electricity Consumption</h2>
-            <p class="text-lg text-gray-700 mb-4">
-                Our predictive model for electricity consumption utilizes historical data and advanced algorithms to
-                forecast energy usage trends for upcoming years. The model incorporates various factors such as
-                historical consumption patterns, population growth, and economic indicators to provide accurate
-                predictions. This helps in planning and managing energy resources efficiently.
-            </p>
-            <p class="text-lg text-gray-700">
-                By analyzing past data and identifying patterns, the model can predict future energy needs, allowing for
-                better resource allocation and policy-making. It is a valuable tool for utilities and policymakers to
-                ensure that energy demands are met sustainably.
-            </p>
-        </section>
-
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">According to our dataset, the results are as follows: </h1>
-        <div id="result" class="result" style="text-align: left;">
-            <p>Hello {{a}}, of year {{b}}, living in {{c}} district, with plot size {{d}} and household size {{e}},your {{f}} model predicts the following:</p>
-
-        <div class="flex justify-center items-center space-x-8 mt-12">
-            <div class="circle circle1">
-                <div class="default-text"> ENERGY THAT WILL BE CONSUMED</div>
-                <div class="hover-text">{{x}} kWh</div>
-            </div>
-            <div class="circle circle2">
-                <div class="default-text">PRICE THAT WILL BE CHARGED</div>
-                <div class="hover-text">Rs. {{y}}</div>
-            </div>
-        </div>
-
-        <div class="flex justify-center mt-8">
-            <div class="circle circle3">
-                <div class="default-text">KNOW MORE ABOUT THE MODEL</div>
-                <div class="hover-text">Mean Square Error: {{z}}<br>
-                R2 Score: {{w}}</div>
-            </div>
-        </div>
-    </div>
+      </div>
     </div>
 
-    <footer class="bg-gray-800 text-center py-4 text-gray-300">
-        <p>&copy; 2024 Our Website. All Rights Reserved.</p>
-    </footer>
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="home.html"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="data.html"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Electricity
+          in Karnataka</a>
+        <a href="#about"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About
+          Us</a>
+        <a href="model.html"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">ML
+          Model Features</a>
+        <a href="#contact"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact
+          Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-4 py-10">
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Predictive Model for Electricity Consumption</h2>
+      <p class="text-lg text-gray-700 mb-4">
+        Our predictive model for electricity consumption utilizes historical data and advanced algorithms to
+        forecast energy usage trends for upcoming years. The model incorporates various factors such as
+        historical consumption patterns, population growth, and economic indicators to provide accurate
+        predictions. This helps in planning and managing energy resources efficiently.
+      </p>
+      <p class="text-lg text-gray-700">
+        By analyzing past data and identifying patterns, the model can predict future energy needs, allowing for
+        better resource allocation and policy-making. It is a valuable tool for utilities and policymakers to
+        ensure that energy demands are met sustainably.
+      </p>
+    </section>
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">According to our dataset, the results are as follows: </h1>
+    <div id="result" class="result" style="text-align: left;">
+      <p>Hello {{a}}, of year {{b}}, living in {{c}} district, with plot size {{d}} and household size {{e}},your {{f}}
+        model predicts the following:</p>
+
+      <div class="flex justify-center items-center space-x-8 mt-12">
+        <div class="circle circle1">
+          <div class="default-text"> ENERGY THAT WILL BE CONSUMED</div>
+          <div class="hover-text">{{x}} kWh</div>
+        </div>
+        <div class="circle circle2">
+          <div class="default-text">PRICE THAT WILL BE CHARGED</div>
+          <div class="hover-text">Rs. {{y}}</div>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-8">
+        <div class="circle circle3">
+          <div class="default-text">KNOW MORE ABOUT THE MODEL</div>
+          <div class="hover-text">Mean Square Error: {{z}}<br>
+            R2 Score: {{w}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-800 text-center py-4 text-gray-300">
+    <p>&copy; 2024 Our Website. All Rights Reserved.</p>
+  </footer>
 
 </body>
 
